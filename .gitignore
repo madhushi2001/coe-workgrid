@@ -1,0 +1,10 @@
+/app/config.local.php
+/.env
+/.env.*
+!/app/config.example.php
+/vendor/
+*.log
+*.sql.gz
+*.zip
+Thumbs.db
+.DS_Store
