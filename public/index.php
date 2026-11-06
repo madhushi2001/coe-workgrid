@@ -140,7 +140,7 @@ function selected(string $value, string|int $option): string
     <a class="brand" href="#" aria-label="COE Workgrid home"><img class="brand-logo" src="/images/logo.jpg" alt=""><span>COE<span class="brand-light"> Workgrid</span></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
     <nav class="main-nav" id="main-nav">
-        <a href="#spaces">Spaces</a><a href="#membership">Membership</a><a href="#about">Our approach</a>
+        <a href="#about">About</a><a href="#spaces">Spaces</a><a href="#membership">Membership</a><a href="#approach">Our approach</a><a href="#booking">Contact</a>
         <a class="nav-cta" href="#booking">Find your space <span aria-hidden="true">↗</span></a>
     </nav>
 </header>
@@ -162,7 +162,7 @@ function selected(string $value, string|int $option): string
             <div class="art-note"><span class="note-icon">✳</span><span><b>Your best ideas<br>need a good place.</b><small>There’s room for you here.</small></span></div>
             <div class="art-counter"><b>01</b><span>SPACE TO<br>THINK DIFFERENT</span></div>
         </div>
-        <div class="hero-bottom"><span>WORK WELL. LIVE WELL.</span><span>SCROLL TO FIND YOUR FLOW&nbsp; ↓</span></div>
+        <div class="hero-bottom"><span>FLEXIBLE DESKS&nbsp; · &nbsp;PRIVATE OFFICES&nbsp; · &nbsp;ROOM TO GROW</span><a href="#spaces">DISCOVER THE WORKSPACE&nbsp; ↓</a></div>
     </section>
 
     <section class="intro section-wrap" id="about">
@@ -178,7 +178,7 @@ function selected(string $value, string|int $option): string
             <div class="space-grid">
                 <?php foreach ($workspaces as $index => $space): ?>
                     <article class="space-card space-card-<?= $index + 1 ?>">
-                        <div class="space-visual"><img class="space-photo" src="<?= e($space['image']) ?>" alt="<?= e($space['image_alt']) ?>" loading="lazy"><span class="space-number"><?= e($space['icon']) ?></span><span class="space-tag"><?= e($space['tag']) ?></span><span class="visual-caption"><?= e($space['caption']) ?></span></div>
+                        <div class="space-visual"><img class="space-photo" src="<?= e($space['image']) ?>" alt="<?= e($space['image_alt']) ?>" loading="lazy"><button class="photo-trigger" type="button" aria-haspopup="dialog" aria-label="View full-size image: <?= e($space['name']) ?>" data-image-index="<?= e($index) ?>"></button><span class="space-number"><?= e($space['icon']) ?></span><span class="space-tag"><?= e($space['tag']) ?></span><span class="visual-caption"><?= e($space['caption']) ?></span></div>
                         <div class="space-info"><div><h3><?= e($space['name']) ?></h3><p><?= e($space['description']) ?></p></div><a href="#booking" aria-label="Ask about <?= e($space['name']) ?>">↗</a></div>
                     </article>
                 <?php endforeach; ?>
@@ -204,13 +204,21 @@ function selected(string $value, string|int $option): string
         <p class="plan-note">Need something different? <a href="#booking">Let’s figure it out together.</a></p>
     </section>
 
-    <section class="manifesto">
-        <div class="manifesto-mark">“</div><p>Good work happens when<br>you have the <span>space to do it.</span></p><span class="manifesto-caption">THAT’S WHAT WE’RE HERE FOR.</span>
+    <section class="manifesto" id="approach">
+        <div class="section-wrap journey-wrap">
+            <div class="journey-heading"><div><p class="section-kicker">04 / A SIMPLE WAY TO BEGIN</p><h2>From first visit to<br><span>your everyday rhythm.</span></h2></div><p>Find your space, settle into a routine, and get on with the work that matters to you.</p></div>
+            <div class="journey-steps">
+                <article><span>01</span><h3>Discover</h3><p>Explore the spaces and find a setting that feels right.</p></article>
+                <article><span>02</span><h3>Choose</h3><p>Pick a workspace and membership that fit your routine.</p></article>
+                <article><span>03</span><h3>Get settled</h3><p>Send us a request and we’ll help with the next steps.</p></article>
+                <article><span>04</span><h3>Do your thing</h3><p>Make room for focus, new ideas, and good work.</p></article>
+            </div>
+        </div>
     </section>
 
     <section class="booking-section" id="booking">
         <div class="section-wrap booking-layout">
-            <div class="booking-copy"><div class="section-kicker">04 / YOUR NEXT STEP</div><h2>Let’s find your<br><span>place to work.</span></h2><p>Tell us a little about what you need. We’ll get back to you and help you find the right fit.</p><div class="booking-aside"><span>✳</span><p>No pressure. Just a good conversation<br>about doing your best work.</p></div></div>
+            <div class="booking-copy"><div class="section-kicker">05 / YOUR NEXT STEP</div><h2>Let’s find your<br><span>place to work.</span></h2><p>Tell us a little about what you need. We’ll get back to you and help you find the right fit.</p><div class="booking-aside"><span>✳</span><p>No pressure. Just a good conversation<br>about doing your best work.</p></div></div>
             <form class="booking-form" method="post" action="/#booking">
                 <h3>Tell us what you’re looking for.</h3><p class="form-intro">We’ll be in touch to talk through the details.</p>
                 <?php if ($notice): ?><div class="form-alert success" role="status"><?= e($notice) ?></div><?php endif; ?>
@@ -227,6 +235,13 @@ function selected(string $value, string|int $option): string
         </div>
     </section>
 </main>
+
+<dialog class="image-lightbox" aria-label="Workspace photo viewer">
+    <button class="lightbox-close" type="button" aria-label="Close image viewer">×</button>
+    <button class="lightbox-arrow lightbox-previous" type="button" aria-label="Previous image">←</button>
+    <figure><img class="lightbox-image" src="" alt=""><figcaption class="lightbox-caption"></figcaption></figure>
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">→</button>
+</dialog>
 
 <footer class="site-footer"><a class="brand footer-brand" href="#"><img class="brand-logo" src="/images/logo.jpg" alt=""><span>COE<span class="brand-light"> Workgrid</span></span></a><p>A little more room to think.</p><div><a href="#spaces">Spaces</a><a href="#membership">Membership</a><a href="#booking">Get in touch</a></div><small>© <?= date('Y') ?> COE Workgrid. Made for good work.</small></footer>
 <script src="/assets/js/site.js" defer></script>

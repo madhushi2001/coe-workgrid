@@ -20,6 +20,12 @@ This file tracks completed and planned work for COE Workgrid. Update it as proje
 - [x] Added workspace photos for open coworking, dedicated desk, and private office cards.
 - [x] Added the supplied hero video with a poster image and reduced-motion playback handling.
 - [x] Applied the requested desktop/mobile typography scale to public and admin interfaces.
+- [x] Restyled the public landing page with a cinematic navy video hero, editorial workspace photography, dark membership cards, a four-step visitor journey, and champagne accents based on the architectural UI reference.
+- [x] Updated the public landing page navigation and section layouts for mobile screens while retaining the booking request flow.
+- [x] Added reduced-motion-aware hero entrance, scroll reveal, and interactive hover animations to the public landing page.
+- [x] Expanded the motion treatment to headings, descriptions, workspace images, package features, journey steps, booking content, footer links, and a slow ambient membership backdrop.
+- [x] Added an accessible full-size workspace photo popup with previous/next controls, keyboard arrows, Escape/backdrop close, and mobile swipe navigation.
+- [x] Added opposing horizontal entrance motion to the workspace photo cards on desktop and mobile.
 
 ### Database and local setup — 2026-11-06
 
